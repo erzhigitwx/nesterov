@@ -1,0 +1,42 @@
+@mixin H1($weight: 100, $size: 72px, $lineH: 90px) {
+  font-family: "Heliosextthin";
+  font-style: normal;
+  font-weight: $weight;
+  font-size: $size;
+  line-height: $lineH;
+  text-transform: uppercase;
+  color: #441d06;
+}
+@mixin H2($weight: 100, $size: 64px, $lineH: 90px) {
+  font-family: "Heliosextthin";
+  font-style: normal;
+  font-weight: $weight;
+  font-size: $size;
+  line-height: $lineH;
+  text-transform: uppercase;
+  color: #441d06;
+}
+@mixin H3($weight: 300, $size: 24px, $lineH: 35px) {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: $weight;
+  font-size: $size;
+  line-height: $lineH;
+  text-transform: uppercase;
+  color: #000000;
+}
+@mixin text($weight: 300, $size: 16px, $lineH: 24px) {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: $weight;
+  font-size: $size;
+  line-height: $lineH;
+  color: #000000;
+}
+@mixin flex($direction: row, $jstf: space-between, $align: center, $gap: 8px) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $jstf;
+  align-items: $align;
+  gap: $gap;
+}

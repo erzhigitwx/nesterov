@@ -1,0 +1,205 @@
+@import "./mixins.scss";
+*,
+html {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  h1 {
+    @include H1;
+  }
+  h2 {
+    @include H2;
+  }
+  h3 {
+    @include H3;
+  }
+  p {
+    @include text;
+  }
+  img {
+    user-select: none;
+  }
+}
+body {
+  height: 100%;
+  width: 100%;
+  user-select: none;
+}
+ul,
+li {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}
+
+.header {
+  width: 100%;
+  height: 114px;
+  .navbar {
+    padding: 0 140px;
+    @include flex(row, space-between, center);
+    .navbar-first__column {
+      @include flex(row, center, center, 50px);
+
+      .navbar-logo {
+        width: 290px;
+        height: 96px;
+      }
+      .navbar-map {
+        @include flex(row, center, center, 10px);
+        img {
+          height: 37px;
+          width: 27px;
+        }
+      }
+    }
+
+    .navbar-second__column {
+      @include flex(row, center, center, 80px);
+
+      .navbar-burger {
+        user-select: none;
+        cursor: pointer;
+        width: 40px;
+        height: 40px;
+        margin-top: 40px;
+        @include flex(column, space-between, flex-start);
+        transition: all 0.3s ease;
+        div {
+          width: 21px;
+          height: 1.5px;
+          background-color: #441d06;
+          position: relative;
+        }
+
+        div::before {
+          content: "";
+          position: absolute;
+          width: 13.33px;
+          height: 1.5px;
+          background-color: #441d06;
+          top: -11.67px;
+        }
+
+        div::after {
+          content: "";
+          position: absolute;
+          width: 30px;
+          height: 2px;
+          background-color: #441d06;
+          top: 11.67px;
+        }
+      }
+    }
+  }
+  .navbar-contact {
+    @include flex(column, center, flex-end, 15px);
+    &__inner {
+      @include flex(row, center, center, 9px);
+      p {
+        font-family: sans-serif;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 24px;
+      }
+    }
+    &__order {
+      @include text(600, 18px);
+    }
+  }
+  .burger {
+    position: fixed;
+    z-index: 1000;
+    height: 100vh;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    padding: 0 18px;
+    background-color: #ffffff;
+    overflow-y: scroll;
+    margin-bottom: 50px;
+    @include flex(column, space-between, center);
+    .burger-header {
+      width: 100%;
+      height: 114px;
+      @include flex(row, center, center, 50%);
+      .navbar-burger {
+        user-select: none;
+        cursor: pointer;
+        width: 40px;
+        height: 40px;
+        margin-top: 40px;
+        @include flex(column, space-between, flex-start);
+        transition: all 0.3s ease;
+        div::before {
+          content: "";
+          position: absolute;
+          width: 40px;
+          height: 2px;
+          background-color: #441d06;
+          transform: rotate(45deg);
+        }
+
+        div::after {
+          content: "";
+          position: absolute;
+          width: 40px;
+          height: 2px;
+          background-color: #441d06;
+          transform: rotate(-45deg);
+        }
+      }
+    }
+    .burger-content {
+      @include flex(column, space-between, flex-start, 30px);
+      p {
+        @include text(400, 18px, 60px);
+        color: #000000;
+        transition: all 0.2s ease-in-out;
+      }
+      &:hover p:not(:hover) {
+        opacity: 0.4;
+      }
+    }
+  }
+}
+
+.button {
+  height: 80px;
+  width: 240px;
+  @include flex(row, center, center, 13px);
+  div {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: #ff9900;
+    z-index: 10;
+    transform: translate(-110px);
+    transition: all 0.5s ease-in-out;
+    
+  }
+  &:hover div{
+    transform: translate(90px);
+  }
+  li {
+    position: static;
+    z-index: 50;
+    @include text(600, 18px, 24px);
+  }
+  img {
+    width: 17px;
+    height: 13.25px;
+    position: static;
+    z-index: 100;
+  }
+}
+
+@font-face {
+  font-family: "Heliosextthin";
+  src: url("../../public/fonts/HeliosExtThin\ Regular.otf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
